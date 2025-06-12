@@ -24,3 +24,26 @@ function showCards() {
 
 showCards();
 window.addEventListener('scroll', showCards);
+
+// Events Popup Modal
+const eventsLink = document.getElementById('events-link');
+const eventsPopup = document.getElementById('events-popup');
+const closePopupBtn = document.getElementById('close-popup');
+
+if (eventsLink && eventsPopup && closePopupBtn) {
+  eventsLink.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent "#" scroll
+    eventsPopup.style.display = 'flex';
+  });
+
+  closePopupBtn.addEventListener('click', () => {
+    eventsPopup.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === eventsPopup) {
+      eventsPopup.style.display = 'none';
+    }
+  });
+}
+
