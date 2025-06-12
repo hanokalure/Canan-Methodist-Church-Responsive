@@ -47,3 +47,55 @@ if (eventsLink && eventsPopup && closePopupBtn) {
   });
 }
 
+// Ministries Popup Logic
+const learnBtns = document.querySelectorAll('.learn-more-btn');
+const ministryPopups = document.querySelectorAll('.ministry-popup-overlay');
+const closeBtns = document.querySelectorAll('.close-ministry-popup');
+
+learnBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const popupId = btn.getAttribute('data-popup');
+    document.getElementById(popupId).style.display = 'flex';
+  });
+});
+
+closeBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.ministry-popup-overlay').style.display = 'none';
+  });
+});
+
+window.addEventListener('click', (e) => {
+  ministryPopups.forEach(popup => {
+    if (e.target === popup) {
+      popup.style.display = 'none';
+    }
+  });
+});
+
+// Mobile Auto Swipe for Ministries
+// Mobile Slider for Ministries (fade-in style)
+let ministryIndex = 0;
+const ministryCards = document.querySelectorAll('.ministry-card');
+
+function showActiveMinistryCard(index) {
+  ministryCards.forEach((card, i) => {
+    card.classList.remove('active');
+    if (i === index) card.classList.add('active');
+  });
+}
+
+function autoRotateMinistries() {
+  if (window.innerWidth <= 768) {
+    showActiveMinistryCard(ministryIndex);
+    ministryIndex = (ministryIndex + 1) % ministryCards.length;
+  }
+}
+
+// Initial call
+showActiveMinistryCard(ministryIndex);
+
+// Rotate every 3 seconds
+setInterval(autoRotateMinistries, 2000);
+
+
