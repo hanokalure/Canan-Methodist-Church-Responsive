@@ -119,11 +119,29 @@ html, body {
 
 /* History Section */
 .section-title {
-  font-size: 36px;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin: 40px 0 20px;
   font-weight: 600;
+  margin: 40px 0 40px;
+  position: relative;
 }
+
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 6px;
+  background-color: #777; /* Customize the color */
+  border-radius: 5px;
+}
+
 
 .history-content {
   display: flex;
@@ -174,9 +192,380 @@ html, body {
     z-index: 9999;
 }
 
+.pastor-section {
+  padding: 40px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.pastor-card {
+  max-width: 400px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.pastor-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.pastor-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.pastor-card p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.connect-section {
+  padding: 40px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.connect-links {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.connect-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  width: 100px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.connect-icon i {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.connect-icon:hover {
+  transform: translateY(-5px);
+}
+
+.connect-icon.fb i { color: #1877f2; }
+.connect-icon.yt i { color: #ff0000; }
+.connect-icon.wa i { color: #25D366; }
+.connect-icon.ig i { color: #C13584; }
+
+/* Mobile view */
+@media screen and (max-width: 768px) {
+  .connect-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .connect-icon {
+    width: 80%;
+    max-width: 300px;
+  }
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: white;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-section .section-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  padding-bottom: 2px;
+}
+
+.contact-section .section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 6px;
+  background-color: #777; /* Customize the color */
+  border-radius: 5px;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form label {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 12px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #125aa1;
+}
+
+.map-container {
+  position: relative;
+  width: 80%;
+  height: 400px;
+  margin: 40px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .map-container {
+    width: 95%;
+    height: 180px;
+    margin: 20px auto;
+  }
+}
+
+.footer {
+  background-color: #2b2f36;
+  color: #ccc;
+  text-align: center;
+  padding: 30px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer .social {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+  }
+
+.footer .social a {
+  color: #ccc;
+  font-size: 28px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer .social a:hover {
+  color: #fff;
+}
+
+.footer .nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.footer .nav-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.footer .nav-links a:hover {
+  color: #fff;
+}
+
+.footer .services {
+  margin-top: 15px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* Responsive for small screens */
+@media screen and (max-width: 768px) {
+  .footer {
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .footer .nav-links {
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  .footer .nav-links a {
+    display: inline-block;
+    font-size: 13px;
+  }
+
+  .footer .services {
+    font-size: 14px;
+  }
+  .footer .social {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+  }
+
+  .footer .social a {
+    font-size: 26px;
+  }
+}
+
+
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .contact-form {
+    padding: 0 10px;
+  }
+
+  .contact-section .section-title {
+    font-size: 24px;
+  }
+}
+
+
+/* Mobile tweaks */
+@media screen and (max-width: 768px) {
+  .pastor-card {
+    padding: 15px;
+  }
+
+  .pastor-card h3 {
+    font-size: 20px;
+  }
+
+  .pastor-card p {
+    font-size: 14px;
+  }
+}
+
+
+/* Committee Section */
+.committee-section {
+  padding: 20px 20px;
+  background: #fff;
+}
+
+.committee-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+
+.committee-item {
+  width: 22%;
+  min-width: 200px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.committee-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.committee-item h2 {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Mobile View - show 1 at a time */
+@media screen and (max-width: 768px) {
+  .committee-wrapper {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    height: 400px;
+    min-height: 320px;
+  }
+
+  .committee-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+    z-index: 0;
+  }
+
+  .committee-item.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 1;
+  }
+}
+
+
 .ministries-section {
   padding: 40px 20px;
-  background-color: #f9f9f9;
+  background-color: #fff;
 }
 
 .ministries-wrapper {
@@ -445,9 +834,16 @@ html, body {
     width: 90%;
   }
 
-  .section-title {
-    font-size: 22px;
-    margin: 30px 0 10px;
+   .section-title {
+    font-size: 24px;
+    display: flex;
+    text-align: center;
+    /* padding: 30px 60px 25px; */
+  }
+
+  .section-title::after {
+    width: 180px;
+    height: 5px;
   }
 
   .card-title {

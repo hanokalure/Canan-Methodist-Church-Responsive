@@ -1,3 +1,41 @@
+const supabaseURL = 'https://mcnfkqomsmtwjfinagux.supabase.co/rest/v1/contact_form';
+const supabaseAPIKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1jbmZrcW9tc210d2pmaW5hZ3V4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1MzIyMzcsImV4cCI6MjA2NTEwODIzN30.hVqalwNmupgBUKR1spNPKZ9Rw_59ewDwf2WPMOcwqOQ';
+
+const form = document.getElementById('myForm');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  const data = {
+    name: formData.get('name'),
+    email: formData.get('email'),
+    message: formData.get('message'),
+  };
+
+  fetch(supabaseURL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': supabaseAPIKey,
+      'Authorization': 'Bearer ' + supabaseAPIKey,
+      'Prefer': 'return=representation'
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(responseData => {
+      console.log('Response Data:', responseData);
+      alert('Form submitted successfully!');
+      form.reset();
+    })
+    .catch(error => {
+      console.error('Error!', error.message);
+      alert('Failed to submit form. Please try again.');
+    });
+});
+
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("nav-menu");
 
@@ -99,3 +137,35 @@ showActiveMinistryCard(ministryIndex);
 setInterval(autoRotateMinistries, 2000);
 
 
+// Committee Card Animation
+const committeeItems = document.querySelectorAll('.committee-item');
+const committeeWrapper = document.querySelector('.committee-wrapper');
+let committeeIndex = 0;
+
+function updateCommitteeCards() {
+  if (window.innerWidth > 768) {
+    // Desktop: show 4 at a time
+    committeeItems.forEach((item, i) => {
+      item.style.display = (i >= committeeIndex && i < committeeIndex + 4) ? 'block' : 'none';
+    });
+    committeeIndex = (committeeIndex + 4) % committeeItems.length;
+  } else {
+    // Mobile: show 1 at a time with animation
+    committeeItems.forEach((item, i) => {
+      item.classList.remove('active');
+      if (i === committeeIndex) item.classList.add('active');
+      else item.classList.remove('active');
+    });
+    committeeIndex = (committeeIndex + 1) % committeeItems.length;
+  }
+}
+
+// Start animation
+updateCommitteeCards();
+setInterval(updateCommitteeCards, 2000);
+
+// Reset view on resize
+window.addEventListener('resize', () => {
+  committeeIndex = 0;
+  updateCommitteeCards();
+});
