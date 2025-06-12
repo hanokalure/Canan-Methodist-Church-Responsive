@@ -3,6 +3,12 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -26,7 +32,7 @@ body {
   display: flex;
   width: 100px;
   height: auto;
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 .nav-right {
@@ -58,10 +64,10 @@ body {
 }
 
 .hamburger {
-  display: none;
-  font-size: 24px;
+  display: flex;
+  font-size: 20px;
   cursor: pointer;
-  padding-right: 20px;
+  margin-right: 10px;
 }
 
 .hero-section {
