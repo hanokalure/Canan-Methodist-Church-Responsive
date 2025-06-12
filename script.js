@@ -134,7 +134,7 @@ function autoRotateMinistries() {
 showActiveMinistryCard(ministryIndex);
 
 // Rotate every 3 seconds
-setInterval(autoRotateMinistries, 2000);
+setInterval(autoRotateMinistries, 2500);
 
 
 // Committee Card Animation
@@ -162,7 +162,7 @@ function updateCommitteeCards() {
 
 // Start animation
 updateCommitteeCards();
-setInterval(updateCommitteeCards, 2000);
+setInterval(updateCommitteeCards, 2500);
 
 // Reset view on resize
 window.addEventListener('resize', () => {
