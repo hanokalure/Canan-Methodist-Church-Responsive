@@ -515,7 +515,7 @@ html, body {
   background: white;
   border: 1px solid #ccc;
   border-radius: 10px;
-  padding: 10px;
+  padding: 30px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s;
